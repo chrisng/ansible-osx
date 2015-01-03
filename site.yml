@@ -1,0 +1,61 @@
+---
+- hosts: all
+  tasks:
+    - name: Install libraries with homebrew
+      homebrew: name={{ item }} state=present
+      with_items:
+        - wget
+        - tree
+        - vim
+          #- ack
+        - git
+          #- rbenv
+          #- ruby-build
+          #- elasticsearch
+        - mysql
+        - tmux
+        - tree
+        - nmap
+        - mtr
+        - iftop
+        - boot2docker
+
+      #- name: Start services at login
+      #  file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path=~/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
+      #  with_items:
+      #    - mysql
+      #    - elasticsearch
+
+      #- name: Setup launch agents for services
+      #  command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+      #  with_items:
+      #    - mysql
+      #    - elasticsearch
+  vars:
+    applications:
+      - google-chrome
+      - firefox
+      - flux
+      - virtualbox
+      - vagrant
+      - evernote
+      - spotify
+      - sourcetree
+      - lightpaper
+      - integrity
+      - skype
+      - xquartz
+
+
+  tasks:
+    - name: Check for installed apps(casks)
+      shell: brew cask list | grep {{ item }}
+      register: installed_applications
+      with_items: applications
+      ignore_errors: true
+
+    - name: Install apps with brew-cask
+      shell: brew cask install {{ item }}
+      with_items: applications
+      when: "{{ item not in installed_applications.results|map(attribute='stdout') }}"
+

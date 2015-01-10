@@ -1,0 +1,8 @@
+  - name: install apps from pip
+    pip: name={{item}}
+    sudo: yes
+    with_items:
+        - virtualenv
+        - cliff
+        - pyyaml
+        - awscli

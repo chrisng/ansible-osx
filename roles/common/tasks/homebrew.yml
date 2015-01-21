@@ -15,7 +15,6 @@
     - nmap
     - mtr
     - iftop
-    - boot2docker
     - pv
     - python
     - coreutils

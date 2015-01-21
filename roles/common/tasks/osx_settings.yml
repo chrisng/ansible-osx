@@ -1,0 +1,9 @@
+- name: "Set OSX screen saver settings:
+  command: "{{ item }}"
+  with_items:
+    - defaults -currentHost write com.apple.screensaver idleTime 600
+    - defaults write com.apple.screensaver askForPassword -int 1
+    - defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+- name: "Set OSX set fast key repeat rate"
+  command: defaults write NSGlobalDomain KeyRepeat -int 0 

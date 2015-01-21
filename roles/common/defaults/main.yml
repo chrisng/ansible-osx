@@ -34,4 +34,5 @@ homebrew_packages:
     - dos2unix
     - ctags
     - ssh-copy-id
+    - jq
 

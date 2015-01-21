@@ -21,6 +21,7 @@
     - coreutils
     - dos2unix
     - ctags
+    - ssh-copy-id
 
 vars:
   applications:

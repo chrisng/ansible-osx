@@ -1,9 +1,16 @@
 - name: Tap homebrew cask
   homebrew_tap: tap=caskroom/cask state=present
 
-- name: "Update homebrew cask"
+- name: Update homebrew cask
   homebrew: name=brew-cask state=latest
 
-- name: "Install application via homebrew-cask"
-  homebrew_cask: name={{ item }} state=installed
+- name: Check for installed cask apps
+  command: "brew cask list"
+  register: installed_applications
+  always_run: yes
   with_items: homebrew_cask_packages
+
+- name: Install apps with brew-cask
+  command: "brew cask install {{ item }} --appdir=/Applications"
+  with_items: homebrew_cask_packages
+  when: item not in installed_applications.results|map(attribute='stdout')

@@ -1,4 +1,4 @@
-- name: install apps from pip
+- name: Install apps from pip
   pip: name={{item}}
   sudo: yes
   with_items:

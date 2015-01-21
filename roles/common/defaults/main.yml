@@ -1,17 +1,18 @@
 ---
 homebrew_cask_packages:
-      - google-chrome
-      - firefox
-      - flux
-      - virtualbox
-      - vagrant
-      - evernote
-      - spotify
-      - sourcetree
-      - lightpaper
-      - integrity
-      - skype
-      - xquartz
+    - google-chrome
+    - firefox
+    - flux
+    - virtualbox
+    - vagrant
+    - evernote
+    - spotify
+    - sourcetree
+    - lightpaper
+    - integrity
+    - skype
+    - xquartz
+    - iterm2
 
 homebrew_packages:
     - wget

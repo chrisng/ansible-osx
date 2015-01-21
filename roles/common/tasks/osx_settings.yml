@@ -1,9 +1,26 @@
-- name: "Set OSX screen saver settings:
+- name: Set OSX screen saver settings
   command: "{{ item }}"
   with_items:
     - defaults -currentHost write com.apple.screensaver idleTime 600
     - defaults write com.apple.screensaver askForPassword -int 1
     - defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-- name: "Set OSX set fast key repeat rate"
+- name: Set OSX set fast key repeat rate
   command: defaults write NSGlobalDomain KeyRepeat -int 0 
+
+- name: Disable creating .DS_Store files on network shares
+  command: defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+- name: "Privacy: Don't send search queries to Apple"
+  command: "{{ item }}"
+  with_items:
+    - defaults write com.apple.Safari UniversalSearchEnabled -bool false
+    - defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+- name: Setup Web Inspector for Safari
+  command: "{{ item }}"
+  with_items:
+    - defaults write com.apple.Safari IncludeDevelopMenu -bool true
+    - defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+    - defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+    - defaults write NSGlobalDomain WebKitDeveloperExtras -bool true

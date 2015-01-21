@@ -15,7 +15,7 @@ fi
 # Download and install Homebrew
 if [[ ! -x /usr/local/bin/brew ]]; then
     echo "Info   | Install   | homebrew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 if (( $(echo "$PYTHON_VER < $TARGET_PYTHON_VER" | bc -l) )); then

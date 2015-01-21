@@ -21,7 +21,12 @@ fi
 if [[ (($PYTHON_VER < $TARGET_PYTHON_VER)) ]] ; then
     echo "Info   | Upgrade   | python" 
     brew install python --framework --with-brewed-openssl
+    brew linkapps python
 fi
+
+echo 'Updating setup tools'
+pip install --upgrade setuptools
+pip install --upgrade pip
 
 echo 'Installing Ansible'
 # prefer pip for installing python packages over the older easy_install

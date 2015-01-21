@@ -29,16 +29,9 @@ pip install --upgrade setuptools
 pip install --upgrade pip
 
 echo 'Installing Ansible'
-# prefer pip for installing python packages over the older easy_install
-#
-#if [[ ! -x `which pip` ]]; then
-#    sudo easy_install pip
-#fi
-
-#if [[ -x `which pip` && ! -x `which ansible` ]]; then
-command -v ansible >/dev/null 2>&1 || { echo >&2 "ansible is not installed.  Aborting."; INSTALL_ANSIBLE=1; exit 0; }
+command -v ansible >/dev/null 2>&1 || { echo >&2 "ansible is not installed.  Aborting."; INSTALL_ANSIBLE=1; }
 if [ ${INSTALL_ANSIBLE} -eq "1" ] ; then
-    if (( $(echo "$OSX_VER > $MAVERICKS" | bc -l) )); then
+    if [[ (($OSX_VER > $MAVERICKS)) ]]; then
         sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
     else
         sudo pip install ansible

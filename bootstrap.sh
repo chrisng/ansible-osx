@@ -18,9 +18,9 @@ if [[ ! -x /usr/local/bin/brew ]]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if (( $(echo "$PYTHON_VER < $TARGET_PYTHON_VER" | bc -l) )); then
+if [[ (($PYTHON_VER < $TARGET_PYTHON_VER)) ]] ; then
     echo "Info   | Upgrade   | python" 
-    sudo brew install python --framework --with-brewed-openssl
+    brew install python --framework --with-brewed-openssl
 fi
 
 echo 'Installing Ansible'

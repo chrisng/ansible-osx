@@ -36,4 +36,3 @@ homebrew_packages:
     - ctags
     - ssh-copy-id
     - jq
-

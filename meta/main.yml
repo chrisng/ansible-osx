@@ -1,0 +1,11 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Chris Ng
+  description: 
+  company: "
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.4
+  categories:
+    - system

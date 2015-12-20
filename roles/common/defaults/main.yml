@@ -16,8 +16,8 @@ homebrew_cask_packages:
 
 homebrew_packages:
     - wget
+    - watch
     - tree
-    - vim
       #- ack
     - git
       #- rbenv

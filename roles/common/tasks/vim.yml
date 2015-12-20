@@ -1,0 +1,9 @@
+- name: Install MacVim
+  command: macvim --with-cscope --with-lua --override-system-vim
+
+- name: Overwrite osx macvim
+  command: brew link --overwrite macvim
+
+- name: Link macvim apps
+  command: brew linkapps macvim
+

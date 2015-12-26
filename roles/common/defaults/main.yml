@@ -15,24 +15,26 @@ homebrew_cask_packages:
     - iterm2
 
 homebrew_packages:
-    - wget
-    - watch
-    - tree
       #- ack
-    - git
+      #- elasticsearch
       #- rbenv
       #- ruby-build
-      #- elasticsearch
-    - mysql
-    - tmux
-    - tree
-    - nmap
-    - mtr
+    - coreutils
+    - ctags
+    - dos2unix
+    - git
     - iftop
+    - jq
+    - mtr
+    - mysql
+    - nmap
     - pv
     - python
-    - coreutils
-    - dos2unix
-    - ctags
+    - rsync
     - ssh-copy-id
-    - jq
+    - tmux
+    - tree
+    - tree
+    - watch
+    - wget
+

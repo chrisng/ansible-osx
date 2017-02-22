@@ -32,9 +32,9 @@ echo 'Installing Ansible'
 command -v ansible >/dev/null 2>&1 || { echo >&2 "ansible is not installed.  Aborting."; INSTALL_ANSIBLE=1; }
 if [ ${INSTALL_ANSIBLE} -eq "1" ] ; then
     if [[ (($OSX_VER > $MAVERICKS)) ]]; then
-        sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
+        sudo -H CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
     else
-        sudo pip install ansible
+        sudo -H pip install ansible
     fi
 fi
 
